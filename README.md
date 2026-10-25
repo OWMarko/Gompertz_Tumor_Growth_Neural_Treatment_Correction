@@ -22,13 +22,13 @@ Time is measured in days. The growth rate $r$, elimination rate $k$ and treatmen
 The growth parameters $r,K$ are estimated from untreated observations and then held fixed. The UDE replaces $\delta$ with a positive coefficient :
 
 $$
-a_\theta(N,C)=\operatorname{softplus}\left(g_\theta(x)\right),
+a_\theta(N,C)=\mathrm{softplus}\left(g_\theta(x)\right),
 \qquad x=(N/\widehat K,C)^\top,
 $$
 
 $$
 g_\theta(x)=w_2^\top\tanh(W_1x+b_1)+b_2,
-\qquad \operatorname{softplus}(s)=\log(1+e^s).
+\qquad \mathrm{softplus}(s)=\log(1+e^s).
 $$
 
 The network has two inputs, eight hidden neurons and one output and $16+8+8+1=33$ parameters. Its coefficient is expressed in $\mathrm{day}^{-1}$. The factor $NC$ and the negative sign of the treatment term are imposed by the model.
@@ -60,7 +60,7 @@ Synthetic observations are generated as $y_i=N(t_i)(1+0.03\epsilon_i)$, with ind
 L-BFGS and ForwardDiff are used to train the network with
 
 $$
-J(\theta)=\operatorname{MSE}_{\mathrm{train}}(\theta)
+J(\theta)=\mathrm{MSE}_{\mathrm{train}}(\theta)
 +10^{-6}\lVert\theta\rVert_2^2.
 $$
 
